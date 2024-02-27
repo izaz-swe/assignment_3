@@ -1,18 +1,5 @@
-const getUserInfo = async () => {
-  const data = await fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => {
-        addNewRows(data);
-      })
-  
-};
-console.log("Working");
-getUserInfo();
-console.log("After.");
-
-const tableBody = document.querySelector('tbody'); // Get the tbody element
-
 function addNewRows(data) {
+  const tableBody = document.querySelector('tbody');
   const rows = data.map(user => {
     return `
       <tr>
@@ -23,14 +10,21 @@ function addNewRows(data) {
       </tr>
     `;
   });
-
-  tableBody.innerHTML = rows.join(''); // Clear existing rows and add new ones
+  tableBody.innerHTML = rows.join('');
 }
 
+const getUserInfo = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await response.json();
+    addNewRows(data);
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+};
 
 const asyncFetch = function () {
   const table = document.getElementById("userTable");
   table.classList.toggle("hide");
-  console.log("hello");
+  getUserInfo();
 }
-

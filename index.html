@@ -1,29 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asynchronus Technique</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <p>Data Fetching</p>
-  <button onclick="asyncFetch()" class="p-2 m-2 bg-blue-500 hover:bg-blue-700 rounded text-white">
-    View User List
-  </button>
-  <table id="userTable" class="hide w-3/4 max-w-8xl mx-auto shadow-md rounded-lg overflow-scroll">
-    <thead>
-      <tr class="text-left bg-gray-500 text-white">
-        <th class="p-2">Name</th>
-        <th class="p-2">Username</th>
-        <th class="p-2">Email</th>
-        <th class="p-2">City</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>  
-  <script src="./async.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronus Technique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="flex justify-center gap-4 m-3 p-2">
+      <div class="w-full p-4 shadow-md rounded-lg bg-white">
+        <h3 class="text-xl font-bold text-blue-500 mb-2">Async/Await</h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-400 mb-2">
+          This button, when clicked, will display a table containing user data
+          fetched asynchronously from the JSON Placeholder website using the
+          async/await syntax.
+        </p>
+        <button
+          onclick="asyncFetch()"
+          class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          View
+        </button>
+      </div>
+      <!-- <div class="w-full p-4 shadow-md rounded-lg bg-white">
+        <p class="mt-2 text-gray-700 dark:text-gray-400">
+          Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
+          gravida at eget metus.
+        </p>
+        <button
+          class="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        >
+          View
+        </button>
+      </div>
+      <div class="w-full p-4 shadow-md rounded-lg bg-white">
+        <p class="mt-2 text-gray-700 dark:text-gray-400">
+          Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer
+          posuere erat a ante.
+        </p>
+        <button
+          class="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+        >
+          View
+        </button>
+      </div> -->
+    </section>
+    <section class="p-3 overflow-scroll m-auto">
+      <table
+        id="userTable"
+        class="hide w-3/4 max-w-8xl mx-auto shadow-md rounded-lg overflow-scroll"
+      >
+        <thead>
+          <tr class="text-left bg-gray-500 text-white">
+            <th class="p-2">Name</th>
+            <th class="p-2">Username</th>
+            <th class="p-2">Email</th>
+            <th class="p-2">City</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <script src="./main_script.js"></script>
+  </body>
 </html>
