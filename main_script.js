@@ -25,6 +25,32 @@ const getUserInfo = async () => {
 
 const asyncFetch = function () {
   const table = document.getElementById("userTable");
-  table.classList.toggle("hide");
+  table.classList.remove("hide");
+  table.classList.add("visible");
   getUserInfo();
+}
+
+// Promise method
+function getUserInfoUsingPromise() {
+   fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => {
+      addNewRows(data);
+    })
+    .catch(error => {
+      console.error("Error fetching user data:", error);
+    });
+}
+
+const promiseFetch = function () {
+  const table = document.getElementById("userTable");
+  table.classList.remove("hide");
+  table.classList.add("visible");
+  getUserInfoUsingPromise();
+}
+
+const hideTable = function () {
+  const table = document.getElementById("userTable");
+  table.classList.add("hide");
+  table.classList.remove("visible");
 }
